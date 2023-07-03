@@ -1,6 +1,14 @@
 <div class ="contents row">
   <% @pets.each do | pet |%>
     <div class="content_post" style="background-image: url(<%= pet.image%>);">
+      <div class="more">
+        <span><%= image_tag 'arrow_top.png' %></span>
+        <ul class="more_list">
+          <li>
+            <%= link_to '削除', pet_path(pet.id), method: :delete %>
+          </li>
+        </ul>
+      </div>
       <p><%= pet.text %></p>
     <span class="name">
       <%= pet.name%>
