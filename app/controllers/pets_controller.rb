@@ -16,6 +16,15 @@ class PetsController < ApplicationController
     pet.destroy
   end
 
+  def edit
+    @pet = Pet.find(params[:id])
+  end
+
+  def update
+    pet = Pet.find(params[:id])
+    pet.update(pet_params)
+  end
+
   private
   def pet_params
     params.require(:pet).permit(:name, :image, :text)
